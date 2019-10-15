@@ -1,0 +1,90 @@
+<doctype>
+<html>
+    <head>
+        <style>
+            #status{
+                width: 600px;
+                height: 250px;
+                background-color: rgb(227, 231, 237);
+            }
+            .countDown{
+                color: red;
+                margin-top: 100px;
+            }
+            html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-size: 16px;
+            background-color: #fff;
+        }    
+        .intro{
+            height: 100%;
+            width: 100%;
+            margin: auto;
+            background: url(image/image.jpg) no-repeat 50% 50%;
+            display: table;
+            top: 0;
+            background-size: cover;
+        }
+        .inner{
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            max-width: none;
+        }
+        .content{
+            max-width: 500px;
+            margin-left: 350px;
+            text-align: center;
+        }
+        .content h1{
+            font-family: 'Raleway' , sans-serif;
+            color: #F9f3F4;
+            text-shadow: 0px 0px 300px #000;
+            font-size: 200%;
+        }
+        .bt{
+            border-radius: 9px;
+            font-family: 'Oswald' ,sans-serif;
+            color: #036A81;
+            font-size: 135%;
+            padding: 10px 20px;
+            border: 3px solid #036A81;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .bt:hover{
+            color: #fff;
+            border: 3px solid #fff;
+        }
+            </style>
+    </head>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <body>
+        <section class="intro">
+            <div class="inner">
+                <div class="content">
+                    <script>
+                        function countDown(secs,elem){
+                            var element = document.getElementById(elem);
+                            element.innerHTML = "<br><br><h2>Please wait for </h2>"+secs+"<h4>seconds</h4>";
+                            if(secs<1){
+                                clearTimeout(timer);
+                                element.innerHTML = '<br><br><h1 style = "color:red; font-family:arial;">!!Test Loaded !!</h1>';
+                                element.innerHTML += '<a class = "bt" href = "quiz.html">Start Test</a>';
+                            }
+                            secs--;
+                            var timer = setTimeout('countDown('+secs+',"'+elem+'")', 1000);
+                        }
+                        </script>
+                        <div id="status"></div>
+                        <script type="text/javascript">countDown(5, "status");</script>
+
+                </div>
+            </div>
+
+        </section>
+    </body>
+</html>
